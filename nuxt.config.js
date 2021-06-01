@@ -34,7 +34,7 @@ export default {
   ],
   bootstrapVue: {
     bootstrapCSS: false,
-    bootstrapVueCSS: flse,
+    bootstrapVueCSS: false,
   },
 
   module: {
