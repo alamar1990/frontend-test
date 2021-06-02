@@ -4,9 +4,18 @@
       <a class='navbar-brand'>
         Movies
       </a>
+      <div class="col navbar-brand" >
+        <div class="cursor">
+          <b-icon icon="camera-reels"></b-icon>
+          <small class="text-muted">Peliculas Demo</small>
+        </div>
+      </div>
+
     </div>
     <div class='col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0'>
-      <button type="button" class="btn btn-primary btn-rounded btn-icon"> <i class="fa fa-user"></i> </button>
+      <div class="navbar-brand">
+        <b-icon icon="cart"></b-icon>
+      </div>
       <div class='dropdown'>
         <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown'
                 aria-expanded='false'>
