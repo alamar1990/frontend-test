@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-
+      Index Page
     </div>
   </div>
 </template>
