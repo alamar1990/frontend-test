@@ -51,4 +51,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  publicRuntimeConfig: {
+    baseURL: 'https://frontend-test.org'
+  },
+
+  privateRuntimeConfig: {
+    omdbApiKey: '21f8f0d0'
+  },
+
 }

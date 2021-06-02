@@ -1,13 +1,18 @@
 <template>
-  <div class="container">
+  <div class="">
     <div>
       Index Page
+      {{$config.baseURL}}
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data(){
+
+  }
+}
 </script>
 
 <style>
