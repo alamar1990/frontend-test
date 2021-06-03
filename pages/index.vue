@@ -1,13 +1,16 @@
 <template>
-  <div class="">
+  <div class="pl-4">
+    <h3>Movies</h3>
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-3 mb-2 mt-2 mb-lg-0" v-for= "(card, id) in paginatedCards" v-bind:key="id">
+      <div class="p-2" v-for= "(card, id) in paginatedCards" v-bind:key="id">
         <card :title="card.title" :description="card.description"></card>
       </div>
     </div>
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-3 mb-2 mt-2 mb-lg-0">
+      <div class="">
         <b-pagination
+            pills
+            align="center"
             @change="onPageChanged"
             :total-rows="totalRows"
             :per-page="perPage"
@@ -76,8 +79,7 @@ export default {
       items: cards,
       paginatedCards: cards,
       currentPage: 1,
-      perPage: 3,
-      totalRows: cards.length
+      perPage: 5,
     }
   },
 
@@ -96,6 +98,12 @@ export default {
 
   mounted(){
     this.paginate(this.perPage, 0);
+  },
+
+  computed: {
+    totalRows() {
+      return cards.length
+    }
   }
 }
 </script>
