@@ -1,13 +1,9 @@
 <template>
   <div class="pl-4">
-    <b-button @click="fetchData">
-      Fetch
-    </b-button>
-    {{testData}}
     <h3>Movies</h3>
     <div class="row">
       <div class="p-2" v-for= "(card, id) in paginatedCards" v-bind:key="id">
-        <card :title="card.title" :description="card.description"></card>
+        <card :title="card.Title" :description="card.Year"></card>
       </div>
     </div>
     <div class="row">
@@ -16,7 +12,7 @@
             pills
             align="center"
             @change="onPageChanged"
-            :total-rows="totalRows"
+            :total-rows="totalItems"
             :per-page="perPage"
             v-model="currentPage"
             class="my-0"
@@ -29,85 +25,36 @@
 
 <script>
 import Card from '@/components/card'
-const cards = [
-  {
-    title: 'card1',
-    description: 'card1Description'
-  },
-  {
-    title: 'card2',
-    description: 'card1Description2'
-  },
-  {
-    title: 'card3',
-    description: 'card1Description3'
-  },
-  {
-    title: 'card4',
-    description: 'card1Description4'
-  },
-  {
-    title: 'card5',
-    description: 'card1Description5'
-  },
-  {
-    title: 'card6',
-    description: 'card1Description6'
-  },
-  {
-    title: 'card7',
-    description: 'card1Description7'
-  },
-  {
-    title: 'card8',
-    description: 'card1Description8'
-  },
-  {
-    title: 'card9',
-    description: 'card1Description9'
-  },
-  {
-    title: 'card10',
-    description: 'card1Description10'
-  },
-  {
-    title: 'card11',
-    description: 'card1Description11'
-  }
-]
 
 export default {
   components: { Card },
   data () {
     return {
-      testData: null,
-      items: cards,
-      paginatedCards: cards,
+      paginatedCards: null,
       currentPage: 1,
       perPage: 10,
+      totalItems: null
     }
   },
 
   methods: {
-    paginate(page_size, page_number) {
-      let cardsToParse = this.items;
-      this.paginatedCards = cardsToParse.slice(
-          page_number * page_size,
-          (page_number + 1) * page_size
-      );
+    async paginate(page_number) {
+      let data = await this.fetchData(page_number);
+      this.paginatedCards = data.Search;
+      this.totalItems = data.totalResults;
     },
     onPageChanged(page) {
-      this.paginate(this.perPage, page - 1);
+      this.paginate(page);
     },
 
-    async fetchData() {
-      const ghost = await this.$axios.$get('http://www.omdbapi.com/?apikey=a76e7a55&s=ghost&page=1')
-      this.testData = ghost
+    async fetchData(page) {
+      const ghost = await this.$axios.$get(`http://www.omdbapi.com/?apikey=a76e7a55&s=ghost&page=${page+''}`)
+      return ghost
     }
   },
 
   mounted(){
-    this.paginate(this.perPage, 0);
+    this.paginate(1);
   },
 
   computed: {
