@@ -1,5 +1,9 @@
 <template>
   <div class="pl-4">
+    <b-button @click="fetchData">
+      Fetch
+    </b-button>
+    {{testData}}
     <h3>Movies</h3>
     <div class="row">
       <div class="p-2" v-for= "(card, id) in paginatedCards" v-bind:key="id">
@@ -76,10 +80,11 @@ export default {
   components: { Card },
   data () {
     return {
+      testData: null,
       items: cards,
       paginatedCards: cards,
       currentPage: 1,
-      perPage: 5,
+      perPage: 10,
     }
   },
 
@@ -93,6 +98,11 @@ export default {
     },
     onPageChanged(page) {
       this.paginate(this.perPage, page - 1);
+    },
+
+    async fetchData() {
+      const ghost = await this.$axios.$get('http://www.omdbapi.com/?apikey=a76e7a55&s=ghost&page=1')
+      this.testData = ghost
     }
   },
 

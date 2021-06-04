@@ -58,6 +58,9 @@ export default {
   build: {},
 
   publicRuntimeConfig: {
+    axios: {
+      // baseURL: 'http://www.omdbapi.com/?apikey=a76e7a55'
+    },
     baseURL: 'https://frontend-test.org'
   },
 
