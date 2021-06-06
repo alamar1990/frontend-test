@@ -47,9 +47,9 @@ export default {
 
   methods: {
     async search() {
-      console.log(this.searchQuery)
       if (this.searchQuery) {
-        await this.paginate(this.searchQuery)
+        await this.$store.dispatch('history/addHistoryItem', this.searchQuery)
+        await this.paginate()
       }
 
     },
