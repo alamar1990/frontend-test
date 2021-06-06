@@ -10,7 +10,7 @@
     </div>
     <div class='row'>
       <div class='p-2' v-for='(card, id) in paginatedCards' v-bind:key='id'>
-        <card :title='card.Title' :description='card.Year'></card>
+        <card :title='card.Title' :description='card.Year' :image='card.Poster'></card>
       </div>
     </div>
     <div class='row'>

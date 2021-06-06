@@ -1,6 +1,6 @@
 <template>
   <div class="card shadow bg-white rounded mb-2" style="">
-    <img src="@/assets/images/movie.png" style="align-self: center" class="card-img-top img-adjusted">
+    <img v-bind:src='image' style='align-self: center' class='card-img-top img-adjusted'>
     <div class="card-body">
       <h5 class="card-title">{{ title }}</h5>
       <p class="card-text">{{ description }}</p>
@@ -15,6 +15,7 @@ export default {
   props: {
     title: String,
     description: String,
+    image: String
   }
 
 }
