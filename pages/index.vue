@@ -9,7 +9,7 @@
       </b-form>
     </div>
     <div class='row pb-4'>
-      <div class='p-2 pb-5' v-for='(card, id) in paginatedCards' v-bind:key='id'>
+      <div class='p-2 pb-5' v-for='(card, id) in paginatedCards' v-bind:key='id' @click='showMovieDetails(id)'>
         <card :title='card.Title' :description='card.Year' :image='card.Poster'></card>
       </div>
     </div>
@@ -51,7 +51,9 @@ export default {
         await this.$store.dispatch('history/addHistoryItem', this.searchQuery)
         await this.paginate()
       }
-
+    },
+    async showMovieDetails(card) {
+      console.log(card.id)
     },
     async paginate(page_number) {
       let data = await this.fetchData(page_number, this.searchQuery)
@@ -81,9 +83,6 @@ export default {
   },
 
   computed: {
-    totalRows() {
-      return cards.length
-    }
   }
 }
 </script>
