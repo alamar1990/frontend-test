@@ -1,6 +1,6 @@
 <template>
   <div class='pl-4'>
-    <div class='row'>
+    <div class='row pb-3'>
       <h3 class='pr-3'>Movies</h3>
       <b-form inline @submit.prevent='search'>
         <b-form-input id='searchInput' v-model='searchQuery' class='mr-sm-2'
@@ -8,21 +8,21 @@
         <b-button class='my-2 my-sm-0' type='submit'>Buscar</b-button>
       </b-form>
     </div>
-    <div class='row'>
-      <div class='p-2' v-for='(card, id) in paginatedCards' v-bind:key='id'>
+    <div class='row pb-4'>
+      <div class='p-2 pb-5' v-for='(card, id) in paginatedCards' v-bind:key='id'>
         <card :title='card.Title' :description='card.Year' :image='card.Poster'></card>
       </div>
     </div>
-    <div class='row'>
+    <div class='row pt-4'>
       <div class=''>
         <b-pagination
           pills
           align='center'
-            @change="onPageChanged"
-            :total-rows="totalItems"
-            :per-page="perPage"
-            v-model="currentPage"
-            class="my-0"
+          @change='onPageChanged'
+          :total-rows='totalItems'
+          :per-page='perPage'
+          v-model='currentPage'
+          class='my-0'
         />
       </div>
     </div>
