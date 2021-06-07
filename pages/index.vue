@@ -1,7 +1,7 @@
 <template>
   <div class='pl-4'>
-    <b-modal id='modal-1'>
-      <p class='my-4'>Hello from modal!</p>
+    <b-modal id="modal-zoomed-image" ok-only hide-header hide-footer>
+      <b-img-lazy v-bind:src='modalImage' class='card-img-top img-adjusted'></b-img-lazy>
     </b-modal>
     <div class='row pb-3'>
       <h3 class='pr-3'>Movies</h3>
@@ -12,11 +12,14 @@
       </b-form>
     </div>
     <div class='row pb-4'>
-      <div class='p-2 pb-5' v-for='(card, id) in paginatedCards' v-bind:key='id' @click='showMovieDetails(id)'>
-        <card :imdbID='card.imdbID' :title='card.Title' :description='card.Year' :image='card.Poster'></card>
+      <div class='p-2 pb-2' v-for='(card, id) in paginatedCards' v-bind:key='id'>
+        <card :imdbID='card.imdbID'
+              :title='card.Title'
+              :description='card.Year'
+              :image='card.Poster'></card>
       </div>
     </div>
-    <div class='row pt-4'>
+    <div class='row '>
       <div class=''>
         <b-pagination
           pills
@@ -91,11 +94,26 @@ export default {
       currentPage: 1,
       searchQuery: 'Interstellar',
       perPage: 10,
-      totalItems: null
+      totalItems: null,
+      modalImage: null
     }
+  },
+  created() {
+    this.$nuxt.$on('zoomInPoster', (value) => {
+      if (value){
+        this.modalImage = value
+        this.$bvModal.show('modal-zoomed-image')
+      }
+    })
+  },
+  beforeDestroy(){
+    this.$nuxt.$off('zoomInPoster')
   },
 
   methods: {
+    zoomInPoster(value) {
+      console.log(value)
+    },
     async search() {
       if (this.searchQuery) {
         await this.$store.dispatch('history/addHistoryItem', this.searchQuery)
@@ -103,7 +121,7 @@ export default {
       }
     },
     async showMovieDetails(card) {
-      console.log(card.id)
+      // console.log(card.id)
     },
     async paginate(page_number) {
       let data = await this.fetchData(page_number, this.searchQuery)
@@ -141,6 +159,14 @@ export default {
 </script>
 
 <style>
+/deep/ .my-class {
+  background: black;
+  color: white;
+}
 
+/deep/ .my-second-class > .modal-dialog > .modal-content > .modal-header {
+  background: black;
+  color: white;
+}
 
 </style>
