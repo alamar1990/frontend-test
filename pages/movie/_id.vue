@@ -48,6 +48,7 @@ export default {
       await this.$store.dispatch('fetchMovieById', {imdbID: this.$route.params.id})
       this.movieData = this.getMovieDetails
       this.loading = !this.getMovieDetails
+      await this.$store.dispatch('history/addHistoryItem', {imdbID: this.$route.params.id, title: this.movieData.Title})
     }
   },
   async mounted() {

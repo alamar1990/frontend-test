@@ -13,3 +13,10 @@ export const actions = {
     context.commit('ADD_HISTORY_ITEM', item)
   },
 }
+
+export const getters = {
+  getHistory: (state) => {
+    return state.history
+  },
+
+}

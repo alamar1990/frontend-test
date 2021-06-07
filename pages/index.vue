@@ -6,7 +6,7 @@
         <b-img-lazy v-bind:src='modalImage' class='card-img-top img-adjusted'></b-img-lazy>
       </b-modal>
       <div class='row pb-3'>
-        <h3 class='pr-3'>Movies</h3>
+        <h3 class='pr-3'>Películas</h3>
         <b-form inline @submit.prevent='search'>
           <b-form-input id='searchInput' v-model='searchQuery' class='mr-sm-2'
                         placeholder='Escriba un nombre'></b-form-input>
@@ -21,7 +21,7 @@
                 :image='card.Poster'></card>
         </div>
       </div>
-      <div class='row '>
+      <div class='row'>
         <div class=''>
           <b-pagination
               pills
@@ -118,7 +118,6 @@ export default {
   methods: {
     async search() {
       if (this.searchQuery) {
-        await this.$store.dispatch('history/addHistoryItem', this.searchQuery)
         await this.paginate()
       }
     },
