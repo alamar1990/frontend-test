@@ -61,10 +61,10 @@ export default {
     axios: {
       // baseURL: 'http://www.omdbapi.com/?apikey=a76e7a55'
     },
-    baseURL: 'https://frontend-test.org,
+    baseURL: 'https://frontend-test.org',
   },
 
   privateRuntimeConfig: {
-    omdbApiKey: '21f8f0d0'
+    omdbApiKey: '21f8f0d0',
   },
 }

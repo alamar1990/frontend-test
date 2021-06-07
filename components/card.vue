@@ -7,7 +7,7 @@
              variant='warning' class='badge-add-cart cursor' @click='addToCart'>
       <b-icon icon='cart-plus'></b-icon>
     </b-badge>
-    <b-badge v-else variant='warning' class='badge-add-cart cursor'>
+    <b-badge v-else variant='warning' class='badge-add-cart cursor' @click='removeFromCart'>
       <b-icon icon='cart-dash'></b-icon>
     </b-badge>
     <b-img-lazy
@@ -34,6 +34,11 @@ export default {
     addToCart() {
       if (!this.checkIfInCart(this.$store.getters.getCart, this.imdbID)) {
         this.$store.dispatch('addCartItem', { imdbID: this.imdbID, title: this.title })
+      }
+    },
+    removeFromCart() {
+      if (this.checkIfInCart(this.$store.getters.getCart, this.imdbID)) {
+        this.$store.dispatch('removeCartItem', this.imdbID)
       }
     }
   },
