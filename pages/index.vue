@@ -111,9 +111,6 @@ export default {
   },
 
   methods: {
-    zoomInPoster(value) {
-      console.log(value)
-    },
     async search() {
       if (this.searchQuery) {
         await this.$store.dispatch('history/addHistoryItem', this.searchQuery)

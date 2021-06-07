@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     addToHistory(){
-
+      this.$nuxt.$router.push(`/movie/${this.imdbID}`)
     },
     addToCart() {
       if (!this.checkIfInCart(this.$store.getters.getCart, this.imdbID)) {
