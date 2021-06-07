@@ -15,14 +15,14 @@ export default {
 
   target: 'static',
   router: {
-    base: '/frontend-test/'
+    base: '/frontend-test/',
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/scss/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/bootstrap.js'],
+  plugins: ['~/plugins/bootstrap.js', { src: '~/plugins/helpers' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -61,11 +61,10 @@ export default {
     axios: {
       // baseURL: 'http://www.omdbapi.com/?apikey=a76e7a55'
     },
-    baseURL: 'https://frontend-test.org'
+    baseURL: 'https://frontend-test.org,
   },
 
   privateRuntimeConfig: {
     omdbApiKey: '21f8f0d0'
   },
-
 }

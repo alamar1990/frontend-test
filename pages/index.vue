@@ -1,5 +1,8 @@
 <template>
   <div class='pl-4'>
+    <b-modal id='modal-1'>
+      <p class='my-4'>Hello from modal!</p>
+    </b-modal>
     <div class='row pb-3'>
       <h3 class='pr-3'>Movies</h3>
       <b-form inline @submit.prevent='search'>
@@ -10,7 +13,7 @@
     </div>
     <div class='row pb-4'>
       <div class='p-2 pb-5' v-for='(card, id) in paginatedCards' v-bind:key='id' @click='showMovieDetails(id)'>
-        <card :title='card.Title' :description='card.Year' :image='card.Poster'></card>
+        <card :imdbID='card.imdbID' :title='card.Title' :description='card.Year' :image='card.Poster'></card>
       </div>
     </div>
     <div class='row pt-4'>
