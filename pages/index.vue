@@ -33,9 +33,56 @@
 <script>
 import Card from '@/components/card'
 
+const cards = [
+  {
+    title: 'card1',
+    description: 'card1Description'
+  },
+  {
+    title: 'card2',
+    description: 'card1Description2'
+  },
+  {
+    title: 'card3',
+    description: 'card1Description3'
+  },
+  {
+    title: 'card4',
+    description: 'card1Description4'
+  },
+  {
+    title: 'card5',
+    description: 'card1Description5'
+  },
+  {
+    title: 'card6',
+    description: 'card1Description6'
+  },
+  {
+    title: 'card7',
+    description: 'card1Description7'
+  },
+  {
+    title: 'card8',
+    description: 'card1Description8'
+  },
+  {
+    title: 'card9',
+    description: 'card1Description9'
+  },
+  {
+    title: 'card10',
+    description: 'card1Description10'
+  },
+  {
+    title: 'card11',
+    description: 'card1Description11'
+  }
+]
+
 export default {
   components: { Card },
-  data () {
+  data() {
     return {
       paginatedCards: null,
       currentPage: 1,
@@ -59,6 +106,9 @@ export default {
       let data = await this.fetchData(page_number, this.searchQuery)
       this.paginatedCards = data.Search
       this.totalItems = data.totalResults
+
+      // this.paginatedCards = cards
+      // this.totalItems = cards.length
     },
     onPageChanged(page) {
       this.paginate(page)

@@ -29,8 +29,25 @@
   max-width: 25%;
 }
 
-.card{
+.card {
   border: none;
   width: 10rem;
   height: 20rem;
+}
+
+.card-text-title {
+  height: 70%;
+  overflow: hidden;
+}
+
+.badge-add-cart {
+  position: absolute;
+  left: 1%;
+  top: 1%
+}
+
+.badge-zoom-in {
+  position: absolute;
+  left: 84%;
+  top: 1%
 }

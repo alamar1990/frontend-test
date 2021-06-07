@@ -15,6 +15,7 @@
     <div class='col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0'>
       <div class="navbar-brand">
         <b-icon icon="cart"></b-icon>
+        <b-badge variant='warning' class='cursor' style=''>0</b-badge>
       </div>
       <div class='dropdown'>
         <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown'
