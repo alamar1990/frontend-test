@@ -67,6 +67,6 @@ export default {
   },
 
   privateRuntimeConfig: {
-    omdbApiKey: process.env.API_KE,
+    omdbApiKey: process.env.API_KEY,
   },
 }
