@@ -19,12 +19,11 @@
             <b-badge variant='warning' class='cursor'>{{ cartItemsCount }}</b-badge>
             <b-icon icon='cart'></b-icon>
           </template>
-          <b-dropdown-text>
-            <b-icon icon='plus' class='cursor'></b-icon>
-            <small class='text-muted'>Peliculas Demo</small>
+          <b-dropdown-text v-for='(item, id) in cart' v-bind:key='id'>
+            <b-icon icon='cart-dash' class='cursor pr-1' variant='danger' @click='deleteFromCart(item)'></b-icon>
+            <small class='text-muted'>{{ item.title }}</small>
           </b-dropdown-text>
         </b-dropdown>
-
       </div>
 
       <div class='dropdown'>
@@ -41,11 +40,20 @@
 
 export default {
   name: 'top-bar',
+  methods: {
+    deleteFromCart(item) {
+      this.$store.dispatch('removeCartItem', item)
+    }
+  },
   computed: {
     cartItemsCount() {
       return this.$store.getters.getCart.length
+    },
+    cart() {
+      return this.$store.getters.getCart
     }
   }
+
 }
 </script>
 
