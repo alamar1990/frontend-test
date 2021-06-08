@@ -14,17 +14,16 @@
       <div class="col-md-6">
         <h4 class="">
           {{ movieData.Title }}
-
         </h4>
         <p>
           {{ movieData.Plot }}
         </p>
-        <div class="">
-          <span> <strong>Plot:</strong></span>
-          <span><strong>Director:</strong></span>
+        <div class=''>
+          <span> <strong>Year:</strong> {{ movieData.Year }}</span>
+          <span> <strong>Actors:</strong> {{ movieData.Actors }}</span>
+          <span><strong>Director:</strong> {{ movieData.Director }}</span>
         </div>
-        <div class=""><strong>Genre : </strong> <span class="amount-old">Action</span> <span
-            class="pro-price"> Comedy</span></div>
+        <div class=''><strong>Genre : </strong> <span class='amount-old'>{{ movieData.Genre }}</span></div>
         <div class="form-group">
           <label>Language</label>
         </div>
