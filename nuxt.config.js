@@ -18,7 +18,7 @@ export default {
 
   target: 'static',
   router: {
-    base: '/frontend-test/',
+    base: '/frontend-test-public/',
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -63,10 +63,10 @@ export default {
   build: {},
 
   publicRuntimeConfig: {
-    baseURL: 'https://frontend-test.og',
+    baseURL: 'https://frontend-test.org,
   },
 
   privateRuntimeConfig: {
-    omdbApiKey: process.env.API_EY,
+    omdbApiKey: process.env.API_KEY
   },
 }
