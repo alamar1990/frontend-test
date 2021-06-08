@@ -56,7 +56,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://www.omdbapi.cm',
+    baseURL: 'http://www.omdbapi.com',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
