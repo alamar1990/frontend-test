@@ -1,4 +1,7 @@
 export default {
+  env: {
+    omdbApiKey: '21f8f0d0',
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'frontendTest',
@@ -46,25 +49,24 @@ export default {
     rules: [
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loade'],
       },
     ],
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'http://www.omdbapi.cm',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   publicRuntimeConfig: {
-    axios: {
-      // baseURL: 'http://www.omdbapi.com/?apikey=a76e7a55'
-    },
-    baseURL: 'https://frontend-test.org',
+    baseURL: 'https://frontend-test.og',
   },
 
   privateRuntimeConfig: {
-    omdbApiKey: '21f8f0d0',
+    omdbApiKey: process.env.API_EY,
   },
 }

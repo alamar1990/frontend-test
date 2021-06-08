@@ -30,27 +30,31 @@ export const actions = {
 
   async fetchMoviesByQuery(context, params) {
     try {
-      const result = await this.$axios.$get(`http://www.omdbapi.com/?apikey=a76e7a55&s=${params.query + ''}&page=${params.page + ''}`)
+      const result = await this.$axios.$get(
+        `?apikey=${process.env.omdbApiKey}&s=${params.query + ''}&page=${
+          params.page + ''
+        }`
+      )
       if (result.Response) {
         context.commit('SET_PAGINATED_MOVIES', result)
       }
     } catch (e) {
       return e
     }
-
   },
 
   async fetchMovieById(context, params) {
     try {
-      const result = await this.$axios.$get(`http://www.omdbapi.com/?apikey=a76e7a55&i=${params.imdbID + ''}`)
+      const result = await this.$axios.$get(
+        `?apikey=${process.env.omdbApiKey}&i=${params.imdbID + ''}`
+      )
       if (result.Response) {
         context.commit('SET_MOVIE_DETAILS', result)
       }
     } catch (e) {
       return e
     }
-
-  }
+  },
 }
 
 export const getters = {
