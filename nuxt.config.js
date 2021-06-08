@@ -63,10 +63,10 @@ export default {
   build: {},
 
   publicRuntimeConfig: {
-    baseURL: 'https://frontend-test.org,
+    baseURL: 'https://frontend-test.org',
   },
 
   privateRuntimeConfig: {
-    omdbApiKey: process.env.API_KEY
+    omdbApiKey: process.env.API_KE,
   },
 }
