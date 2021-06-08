@@ -18,7 +18,7 @@ export default {
 
   target: 'static',
   router: {
-    base: '/frontend-test-public/',
+    base: '/frontend-test/',
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
