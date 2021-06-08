@@ -45,20 +45,22 @@ export default {
   },
   async created() {
     if (this.$route.params.id) {
-      await this.$store.dispatch('fetchMovieById', {imdbID: this.$route.params.id})
+      await this.$store.dispatch('fetchMovieById', { imdbID: this.$route.params.id })
       this.movieData = this.getMovieDetails
       this.loading = !this.getMovieDetails
-      await this.$store.dispatch('history/addHistoryItem', {imdbID: this.$route.params.id, title: this.movieData.Title})
+      await this.$store.dispatch('history/addHistoryItem', {
+        imdbID: this.$route.params.id,
+        title: this.movieData.Title
+      })
     }
   },
-  async mounted() {
-    if (this.$route.params.id) {
-    }
+  mounted() {
+
   },
   computed: {
     getMovieDetails() {
       return this.$store.getters.getMovieDetails
-    },
+    }
   }
 }
 </script>
